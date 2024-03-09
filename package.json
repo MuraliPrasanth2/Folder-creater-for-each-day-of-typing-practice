@@ -1,0 +1,33 @@
+{
+  "name": "create-folders-for-typing-practice",
+  "version": "1.0.1",
+  "description": "This NPM package will create folders for typing practice given the day number",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {},
+  "bin": {
+    "typecreate": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuraliPrasanth2/Folder-creater-for-each-day-of-typing-practice.git"
+  },
+  "keywords": [
+    "create-directory",
+    "directory-using-cli",
+    "directory-creation",
+    "directories",
+    "directory-creation-for-my-typing-practice"
+  ],
+  "author": "Murali Prasanth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MuraliPrasanth2/Folder-creater-for-each-day-of-typing-practice/issues"
+  },
+  "homepage": "https://github.com/MuraliPrasanth2/Folder-creater-for-each-day-of-typing-practice#readme",
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "figlet": "^1.5.2",
+    "gradient-string": "^2.0.2"
+  }
+}
