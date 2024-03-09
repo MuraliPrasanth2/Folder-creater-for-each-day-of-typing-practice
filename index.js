@@ -6,6 +6,7 @@ import { mkdirSync } from "node:fs";
 import gradient from "gradient-string";
 import figlet from "figlet";
 import getQuote from "./quotes.js";
+import getDayText from "./dayText.js";
 import * as fs from "node:fs";
 
 // getting dayNumber from cli arguments.
@@ -36,8 +37,11 @@ directoryNames.forEach(directoryName => {
 });
 
 const quoteOfTheDay = getQuote(dayNumber);
+const dayText = getDayText(dayNumber);
+const subscriptionMessage = "If you enjoy watching these videos, I invite you to subscribe to my channel. It help support my channel's growth. Thank you for your support!";
+const completeText = dayText + "\n\n" + quoteOfTheDay + "\n\n" + subscriptionMessage;
 try {
-  fs.writeFileSync(path.resolve("day" + dayNumber, "quote.txt"), quoteOfTheDay, 'utf-8');
+  fs.writeFileSync(path.resolve("day" + dayNumber, "day" + dayNumber + ".txt"), completeText, 'utf-8');
 } catch (error) {
   console.log(chalk.red(error.message));
   process.exit(1);
