@@ -5,6 +5,8 @@ import { cwd } from "node:process";
 import { mkdirSync } from "node:fs";
 import gradient from "gradient-string";
 import figlet from "figlet";
+import getQuote from "./quotes.js";
+import * as fs from "node:fs";
 
 // getting dayNumber from cli arguments.
 const cliArguments = process.argv;
@@ -33,6 +35,14 @@ directoryNames.forEach(directoryName => {
   }
 });
 
+const quoteOfTheDay = getQuote(dayNumber);
+try {
+  fs.writeFileSync(path.resolve("day" + dayNumber, "quote.txt"), quoteOfTheDay, 'utf-8');
+} catch (error) {
+  console.log(chalk.red(error.message));
+  process.exit(1);
+}
+
 //displaying a cool done message.
 figlet("Done :)", (error, data) => {
   console.log(gradient.mind(data));
@@ -41,8 +51,5 @@ figlet("Done :)", (error, data) => {
 
 
 function isNumber(str) {
-  // Try to convert the string to a number
-  // If it's a valid number, parseFloat or parseInt will return a number
-  // If it's not a valid number, parseFloat or parseInt will return NaN
   return !isNaN(parseFloat(str)) && isFinite(str);
 }
